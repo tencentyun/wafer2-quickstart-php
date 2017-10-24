@@ -70,8 +70,7 @@ class CurlHandle
             // Verifies the authenticity of the peer's certificate
             CURLOPT_SSL_VERIFYPEER => 1,
             // Certificate must indicate that the server is the server to which you meant to connect
-            CURLOPT_SSL_VERIFYHOST => 2,
-            CURLOPT_PROXY => 'http://dev-proxy.oa.com:8080'
+            CURLOPT_SSL_VERIFYHOST => 2
         );
 
         if (defined('CURLOPT_PROTOCOLS')) {
