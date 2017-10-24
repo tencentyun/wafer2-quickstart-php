@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "25d81132177006560e93e1d30e770feb",
+    "content-hash": "3e0ff2b6bf969df5a379fa18eeeef90e",
     "packages": [
         {
             "name": "guzzle/guzzle",
@@ -137,12 +137,17 @@
         },
         {
             "name": "qcloud/weapp-sdk",
-            "version": "dev-dev",
+            "version": "v2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/tencentyun/wafer-php-server-sdk.git",
+                "reference": "c9a4fbd56faa92b83cfbacd2715b8eda0d20f207"
+            },
             "dist": {
-                "type": "path",
-                "url": "/Users/Jason/tencent/wafer2-php-sdk",
-                "reference": "a3744e93c708b2bbd9e343e0b58363b36e078a6d",
-                "shasum": null
+                "type": "zip",
+                "url": "https://files.phpcomposer.com/files/tencentyun/wafer-php-server-sdk/c9a4fbd56faa92b83cfbacd2715b8eda0d20f207.zip",
+                "reference": "c9a4fbd56faa92b83cfbacd2715b8eda0d20f207",
+                "shasum": ""
             },
             "require": {
                 "php": ">=5.4.0",
@@ -158,17 +163,7 @@
                     "QCloud_WeApp_SDK\\": "lib/"
                 }
             },
-            "scripts": {
-                "test-server": [
-                    "php -t ./tests/test-server -S 127.0.0.1:9993"
-                ],
-                "test": [
-                    "phpunit --configuration phpunit.xml.dist"
-                ],
-                "coveralls": [
-                    "coveralls --coverage_clover build/logs/clover.xml --verbose"
-                ]
-            },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -185,7 +180,8 @@
                 "qcloud",
                 "sdk",
                 "weapp"
-            ]
+            ],
+            "time": "2017-10-16T09:48:23+00:00"
         },
         {
             "name": "symfony/event-dispatcher",
@@ -251,9 +247,7 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "qcloud/weapp-sdk": 20
-    },
+    "stability-flags": [],
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
