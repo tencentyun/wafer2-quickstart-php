@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "3e0ff2b6bf969df5a379fa18eeeef90e",
+    "content-hash": "5a14b686cdf8f48c8865a10ad1b17b78",
     "packages": [
         {
             "name": "guzzle/guzzle",
@@ -137,16 +137,16 @@
         },
         {
             "name": "qcloud/weapp-sdk",
-            "version": "v2.0",
+            "version": "v2.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/tencentyun/wafer-php-server-sdk.git",
-                "reference": "c9a4fbd56faa92b83cfbacd2715b8eda0d20f207"
+                "reference": "0d6eb85104dfade25025fa8048e5a5e9a089ce1f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://files.phpcomposer.com/files/tencentyun/wafer-php-server-sdk/c9a4fbd56faa92b83cfbacd2715b8eda0d20f207.zip",
-                "reference": "c9a4fbd56faa92b83cfbacd2715b8eda0d20f207",
+                "url": "https://files.phpcomposer.com/files/tencentyun/wafer-php-server-sdk/0d6eb85104dfade25025fa8048e5a5e9a089ce1f.zip",
+                "reference": "0d6eb85104dfade25025fa8048e5a5e9a089ce1f",
                 "shasum": ""
             },
             "require": {
@@ -181,7 +181,7 @@
                 "sdk",
                 "weapp"
             ],
-            "time": "2017-10-16T09:48:23+00:00"
+            "time": "2017-10-24T08:35:02+00:00"
         },
         {
             "name": "symfony/event-dispatcher",
