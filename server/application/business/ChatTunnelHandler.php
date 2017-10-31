@@ -48,7 +48,7 @@ class ChatTunnelHandler implements ITunnelHandler {
         $data = self::loadData();
 
         if (array_key_exists($tunnelId, $data['userMap'])) {
-            $data['connectedTunnelIds'][] = $tunnelId;
+            array_push($data['connectedTunnelIds'], $tunnelId);
             self::saveData($data);
 
             self::broadcast('people', array(
