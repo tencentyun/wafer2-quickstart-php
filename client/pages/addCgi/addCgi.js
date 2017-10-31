@@ -40,10 +40,17 @@ Page({
 })
 
 var code = [
-`router.get('/demo', controllers.demo)`,
-`module.exports = ctx => {
-    ctx.state.data = {
-        msg: 'Hello World'
+`<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+
+class Demo extends CI_Controller {
+    public function index() {
+        $this->json([
+            'code' => 0,
+            'data' => [
+                'msg' => 'Hello World'
+            ]
+        ]);
     }
 }`
 ]

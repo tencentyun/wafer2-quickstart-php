@@ -82,15 +82,13 @@ page {
 
 .guide .image1 {
     margin-top: 20rpx;
-    max-width: 100%;
     width: 356px;
     height: 47px;
 }
 
 .guide .image2 {
     margin-top: 20rpx;
-    width: 264px;
-    height: 100px;
+    width: 100%;
 }
 
 .guide .copyBtn {
