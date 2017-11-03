@@ -59,7 +59,7 @@
 
   ![开发者工具](https://mc.qcloudimg.com/static/img/dddafb0f88489d0de7010321e6b48071/3.png)
 
-4. 打开 Demo 代码中 `server` 目录下的 `config.js` 文件，将其中的 `mysql` 配置项的密码 `pass` 改成你的微信小程序 AppID，并**保存**。
+4. 打开 Demo 代码中 `server` 目录下的 `config.php` 文件，将其中的 `mysql` 配置项的密码 `pass` 改成你的微信小程序 AppID，并**保存**。
 
   ![修改 MySQL 密码](https://mc.qcloudimg.com/static/img/bff029ee14023904354ca89ae64fea5e/1.jpg)
 
