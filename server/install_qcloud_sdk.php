@@ -11,7 +11,7 @@ use \QCloud_WeApp_SDK\Conf as Conf;
 if (PHP_OS === 'WINNT') {
     $sdkConfigPath = 'C:\qcloud\sdk.config';
 } else {
-    $sdkConfigPath = '/data/release/sdk.config.json';
+    $sdkConfigPath = '/data/release/sdk.config';
 }
 
 if (!file_exists($sdkConfigPath)) {
