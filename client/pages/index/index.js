@@ -12,121 +12,33 @@ Page({
     },
 
     // 用户登录示例
-    login: function () {
-        if (this.data.logged) return
+    login: function (e) {
+      if (this.data.logged) return;
 
-        util.showBusy('正在登录')
-        var that = this
+      util.showBusy('正在登录');
+      
+      var that = this;
+     
+      var loginParams = {
+        encryptedData: e.detail.encryptedData,
+        iv: e.detail.iv,
+      }
+      
+      qcloud.login({
+        loginParams,
+        success: function (result) {
+         
+            that.setData({
+             userInfo: result,
+             logged: true
+           })
+        },
+        fail: function (loginError) {
+            util.showModel('登录失败', loginError)
+            console.log('登录失败', loginError)
+        }
 
-        // 调用登录接口
-        qcloud.login({
-            success(result) {
-                if (result) {
-                    util.showSuccess('登录成功');
-                    that.setData({
-                        userInfo: result,
-                        logged: true
-                    })
-                } else {
-                    // 如果不是首次登录，不会返回用户信息，请求用户信息接口获取
-                    qcloud.request({
-                        url: config.service.requestUrl,
-                        login: true,
-                        success(result) {
-                            util.showSuccess('登录成功')
-                            that.setData({
-                                userInfo: result.data.data,
-                                logged: true
-                            })
-                        },
-
-                        fail(error) {
-                            util.showModel('请求失败', error)
-                            console.log('request fail', error)
-                        }
-                    })
-                }
-            },
-
-            fail(error) {
-                util.showModel('登录失败', error)
-                console.log('登录失败', error)
-            }
-        })
-    },
-
-    bindGetUserInfo: function (e) {
-        if (this.data.logged) return;
-
-        util.showBusy('正在登录');
-
-        var that = this;
-        var userInfo = e.detail.userInfo;
-
-        // 查看是否授权
-        wx.getSetting({
-            success: function (res) {
-                if (res.authSetting['scope.userInfo']) {
-
-                    // 检查登录是否过期
-                    wx.checkSession({
-                        success: function () {
-                            // 登录态未过期
-                            util.showSuccess('登录成功');
-                            that.setData({
-                                userInfo: userInfo,
-                                logged: true
-                            })
-                        },
-
-                        fail: function () {
-                            qcloud.clearSession();
-                            // 登录态已过期，需重新登录
-                            var options = {
-                                encryptedData: e.detail.encryptedData,
-                                iv: e.detail.iv,
-                                userInfo: userInfo
-                            }
-                            that.doLogin(options);
-                        },
-                    });
-                } else {
-                    util.showModel('用户未授权', e.detail.errMsg);
-                }
-            }
-        });
-    },
-
-    doLogin: function (options) {
-        var that = this;
-
-        wx.login({
-            success: function (loginResult) {
-                var loginParams = {
-                    code: loginResult.code,
-                    encryptedData: options.encryptedData,
-                    iv: options.iv,
-                }
-                qcloud.requestLogin({
-                    loginParams, success() {
-                        util.showSuccess('登录成功');
-
-                        that.setData({
-                            userInfo: options.userInfo,
-                            logged: true
-                        })
-                    },
-                    fail(error) {
-                        util.showModel('登录失败', error)
-                        console.log('登录失败', error)
-                    }
-                });
-            },
-            fail: function (loginError) {
-                util.showModel('登录失败', loginError)
-                console.log('登录失败', loginError)
-            },
-        });
+      });
     },
 
     // 切换是否带有登录态
@@ -143,14 +55,14 @@ Page({
         var options = {
             url: config.service.requestUrl,
             login: true,
-            success(result) {
+            success (result) {
                 util.showSuccess('请求成功完成')
                 console.log('request success', result)
                 that.setData({
                     requestResult: JSON.stringify(result.data)
                 })
             },
-            fail(error) {
+            fail (error) {
                 util.showModel('请求失败', error);
                 console.log('request fail', error);
             }
@@ -171,7 +83,7 @@ Page({
             count: 1,
             sizeType: ['compressed'],
             sourceType: ['album', 'camera'],
-            success: function (res) {
+            success: function(res){
                 util.showBusy('正在上传')
                 var filePath = res.tempFilePaths[0]
 
@@ -181,7 +93,7 @@ Page({
                     filePath: filePath,
                     name: 'file',
 
-                    success: function (res) {
+                    success: function(res){
                         util.showSuccess('上传图片成功')
                         console.log(res)
                         res = JSON.parse(res.data)
@@ -191,13 +103,13 @@ Page({
                         })
                     },
 
-                    fail: function (e) {
+                    fail: function(e) {
                         util.showModel('上传图片失败')
                     }
                 })
 
             },
-            fail: function (e) {
+            fail: function(e) {
                 console.error(e)
             }
         })
