@@ -13,6 +13,7 @@
         </view>
     </view>
 
+
     <!-- 上传图片测试 -->
     <view class="uploader">
         <view class="uploader-text" bindtap="doUpload">
@@ -28,7 +29,6 @@
         </view>
     </view>
 
-    
 
     <!-- 上传图片测试 -->
     <view class="uploader">
